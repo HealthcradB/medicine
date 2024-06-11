@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import medicineRoute from './routes/medicineRoute.js';
 import connectDB from './config/db.js';
+import genericRoute from './routes/genericRoute.js';
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(express.json());
 
 // Routes
 app.use('/api/v1/medicinelist', medicineRoute);
+
+app.use('/api/v1/genericmedicinelist', genericRoute);
 
 // Rest API
 app.get('/', (req, res) => {

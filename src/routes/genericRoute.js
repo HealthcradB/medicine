@@ -1,11 +1,20 @@
 import express from 'express';
-
-import { getAll } from '../controllers/genericController.js';
-import { get } from '../controllers/genericController.js'; // Fixed import path
+import {
+  getAll,
+  get,
+  createGenericMedicine,
+  deleteGenericMedicine,
+  updatePurchaseDiscount,
+  updateDiscount,
+} from '../controllers/genericController.js';
 
 const router = express.Router();
 
 router.get('/get-generic-medicine', getAll);
 router.get('/single-generic-medicine/:id', get);
+router.post('/create-generic-medicine', createGenericMedicine);
+router.delete('/delete-generic-medicine/:id', deleteGenericMedicine);
+router.put('/update-purchase-discount/:id', updatePurchaseDiscount);
+router.put('/update-discount/:id', updateDiscount);
 
 export default router;
